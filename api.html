@@ -1,0 +1,562 @@
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Morcrypto</title>
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Saira:400,700,900&amp;display=swap" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+	<article>
+		<section class="grey-bgs login-bg">
+			<div class="systembannerbg">
+				<div class="container">
+					<div class="apibanner">
+						<div class="text-center loginbgbannert">
+							<div class="logobanner"><img src="images/logo.png"></div>
+							<div class="apidocumntbg">
+								<h3 class="text-uppercase">API Documnetation</h3>
+								<div class="bottom-u-line"></div>
+								<div class="apiflexbox">
+									<div class="col-md-3 col-sm-4 col-xs-12 apiciontenttext">
+										<div class="apilistleftbox">
+											<h4 class="borderttitle">REST API</h4>
+											<ul class="nav nav-tabs listsetup listtabbg">
+												<li class="active"><a data-toggle="tab" href="#tab1" aria-expanded="false">GetAuthorizationToken</a></li>
+												<li><a data-toggle="tab" href="#tab2">General information</a></li>
+												<li><a data-toggle="tab" href="#tab3" aria-expanded="true">User wallet balances</a></li>
+												<li><a data-toggle="tab" href="#tab4">User Transactions</a></li>
+												<li><a data-toggle="tab" href="#tab5">Orderbook</a></li>
+												<li><a data-toggle="tab" href="#tab6">Market stats (ticker)</a></li>
+												<li><a data-toggle="tab" href="#tab7">Transactions</a></li>
+												<li><a data-toggle="tab" href="#tab8">New buy Order</a></li>
+												<li><a data-toggle="tab" href="#tab9">New sell Order</a></li>
+												<li><a data-toggle="tab" href="#tab10">Order</a></li>
+												<li><a data-toggle="tab" href="#tab11">All Order</a></li>
+												<li><a data-toggle="tab" href="#tab12">Openorders</a></li>
+												<li><a data-toggle="tab" href="#tab13">Api version</a></li>
+												<li><a data-toggle="tab" href="#tab14">New buy market Order</a></li>
+												<li><a data-toggle="tab" href="#tab15">New sell market Order</a></li>
+											
+											<h4>MorCrypto</h4>
+												<li><a data-toggle="tab" href="#tab16">Getopenorders</a></li>
+												<li><a data-toggle="tab" href="#tab17">Getbalances</a></li>
+												<li><a data-toggle="tab" href="#tab18">Getdepositaddress</a></li>
+												<li><a data-toggle="tab" href="#tab19">Getbalance</a></li>
+												<li><a data-toggle="tab" href="#tab20">Getorder</a></li>
+												<li><a data-toggle="tab" href="#tab21">Getorderhistory</a></li>
+												<li><a data-toggle="tab" href="#tab22">Getwithdrawalhistory</a></li>
+												<li><a data-toggle="tab" href="#tab23">Getdeposithistory</a></li>
+												<li><a data-toggle="tab" href="#tab24">Withdraw</a></li>
+												<li><a data-toggle="tab" href="#tab25">Get Ticker</a></li>
+												<li><a data-toggle="tab" href="#tab26">Get Currencies</a></li>
+												<li><a data-toggle="tab" href="#tab27">Get Market Summaries</a></li>
+												<li><a data-toggle="tab" href="#tab28">Get Market Summary</a></li>
+												<li><a data-toggle="tab" href="#tab29">Get Markets</a></li>
+												<li><a data-toggle="tab" href="#tab30">GetAuthorizationToken</a></li>
+												<li><a data-toggle="tab" href="#tab31">GetBasicInfo</a></li>
+												<li><a data-toggle="tab" href="#tab32">Get Orderbook</a></li>
+												<li><a data-toggle="tab" href="#tab33">Get Markethistory</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-9 col-sm-8 col-xs-12">
+										<div class="tab-content">
+											<div id="tab1" class="tab-pane fade">
+												<h4>GetAuthorizationToken</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Get the user token.</p>
+												<p><strong>Method : Post</strong></p>
+												<p><strong>Request Parameters:</strong></p>
+												<p>publickey : anyone user api public key</p>
+												<p>privatekey : anyone user api private key</p>
+												<p></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/login</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "Login successfully!","result": [{  "access_token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjgyMTJjODEwZmU2ZDljZTNkZjQ1ZGU0NTE4NTk0NGZiY2MwNzU3ZTQ2MTI1ZTVmMzRhMTUzZDllNjY3Njg3YTgxZTY5NjNhNmEzNWMxZjdkIn0.eyJhdWQiOiIxIiwianRpIjoiODIxMmM4MTBmZTZkOWNlM2RmNDVkZTQ1MTg1OTQ0ZmJjYzA3NTdlNDYxMjVlNWYzNGExNTNkOWU2Njc2ODdhODFlNjk2M2E2YTM1YzFmN2QiLCJpYXQiOjE1NjUxNjIwNTksIm5iZiI6MTU2NTE2MjA1OSwiZXhwIjoxNTk2Nzg0NDU5LCJzdWIiOiI2MyIsInNjb3BlcyI6W119.xYwYf8Q2_vSiC47zkr4-vZ67SlW9JzFYrdFMdM6uoyUo2z-nUmEbS0QjaE8A3c5Ve5z5DQOm-kFs71Rdq_twRNV9yZj8FPe2q9VIKSk_WWBeAL8_jgVOwpSbIhA4IpjtSakHV21WMEYatiE5Oly2ajoY1_KISUgM1u_5wunpzdjJ0ZUsUGamU5chWv0y9i0lvYXi4ucsU169lAqSpmJecGu1DiM-dorG99BEDuBV5TNkDzBm3jbXQHp3crQ65zwWHGHPboOpSVrPbmqW0DD0-8ZeR56pC8pCKoE5ARCIJ42u8ddrGj5Vmj5hhwNMkPpjYTUtBr8cCyLOwuLb0Xlr69ppW5hgea56BqEEzqO3De_cktczRzTpjkYXFzTEp2HzhPXA65ls2-Nu4zzopYsJwGytW5uOcUz_8zigK26pnOk6UO_3AN_mTLTHhfdfKMDmCHXXncjPU4vYUMVOOq6kUBj1OzAN57zbkIU8n8Kp8XwFPGbgQb9alPAlV4LGmoOxNknvzkoA4CdrU6UGfKEB9VLWQJpBMly9tKG9s5UOP5cZZ1r5Ubzqqby6EG3r17MMGU1qGxU8_1JoPLD5fQuHyI9K6fYQCmtlsdolWf1X6w9K8W2255FPio1TwJEEE9lHsmodsUZuw6A2W7AuLHNpffOzw7JRXli4nfsp4WYyIwQ",        "expires_at": "2020-08-07 07:14:19"  }]}</pre>
+												<p></p>
+											</div>
+											<div id="tab2" class="tab-pane fade in">
+												<h4>General information</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Get the user basic details.</p>
+												<p><strong>Method : GET</strong></p>
+												<p><strong>Request Parameters:</strong></p>
+												<p>Inheader: Authorization</p>
+												<p></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/get_basic_info</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{ "username": "username","email": "useremail","phonenumber": 123456     }]}</pre>
+												<p></p>
+											</div>
+											<div id="tab3" class="tab-pane fade in active">
+												<h4>User wallet balances</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve the balance from your account for a specific currency.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>currency</strong>: a string literal for the currency (ie. BTC)</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/getbalance?currency=BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{   "Currency": "BTC","Balance": "99.12400000","Available": "99.12400000","CryptoAddress": "123" }]}</pre>
+												<p></p>
+											</div>
+											<div id="tab4" class="tab-pane fade in">
+												<h4 _ngcontent-psu-c1="">User Transactions</h4>
+												<p _ngcontent-psu-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve your order history.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ie. ETH-BTC). If omitted, will return for all markets</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/getorderhistory?market=ETH-BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "buy": [ { "OrderUuid": "123456","Exchange": "USD-BTC", "TimeStamp": "2019-07-22T20:01:36.000000Z","OrderType": "Limit","PostType": "Buy", "Quantity": 2, "QuantityRemaining": 2, "CommissionPaid": "0.04000000","Price": 1,"Opened": "2019-07-22T20:01:36.000000Z","Closed": false,"ImmediateOrCancel": true ], "sell": [ {"OrderUuid": 123456,"Exchange": "USD-BTC", "TimeStamp": "2019-07-22T20:02:05.000000Z","OrderType": "Limit","Quantity": 1,"QuantityRemaining": 1, "CommissionPaid": "0.03000000","Price": 2,"Opened": "2019-07-22T20:02:05.000000Z","Closed": false,"ImmediateOrCancel": true}],}, }]}</pre></div>
+											<div id="tab5" class="tab-pane fade in">
+												<h4 _ngcontent-psu-c1="">Orderbook</h4>
+												<p _ngcontent-psu-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to get retrieve the orderbook for a given market.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>market</strong>: a string literal for the market (ex: ETH-BTC)</p>
+												<p><code><strong>Type</strong>: buy</code>, <code>sell</code> or <code>both</code> to identify the type of orderbook to return</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/getorderbook?market=ETH-BTC&amp;type=both</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "buy":[{"quantity":2,"rate":1},{"quantity":2,"rate":2}],"sell":[{"quantity":3,"rate":2}]  }]}</pre></div>
+											<div id="tab6" class="tab-pane fade in">
+												<h4 _ngcontent-psu-c1="">Market stats (ticker)</h4>
+												<p _ngcontent-psu-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to get the current tick values for a market.</p>
+												<p></p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>market</strong>: string in query a string literal for the market (ex: ETH-BTC)</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p></p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/getticker?market=ETH-BTC</pre>
+												<p></p>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{    "success": true,    "message": "''",    "result": {        "Bid": "0.00000000",        "Ask": "0.00000000",        "Last": "0.00000000"    }}</pre></div>
+											<div id="tab7" class="tab-pane fade in">
+												<h4 _ngcontent-psu-c1="">Transactions</h4>
+												<p _ngcontent-psu-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve a single order by uuid</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p>the <strong>uuid</strong> of the buy or sell order</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/getorder?uuid=955fc21dc4f203781eb44821820d0963</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "result": { "OrderUuid": "123456","Exchange": "USD-BTC","OrderType": "Limit","PostType": "Buy","Quantity": 2,"QuantityRemaining": 2,"CommissionPaid": "0.04000000","Price": 1,"Opened": "2019-07-22T20:01:36.000000Z","Closed": false,"ImmediateOrCancel": true } }]}</pre></div>
+											<div id="tab8" class="tab-pane fade in">
+												<h4 _ngcontent-psu-c1="">New buy Order</h4>
+												<p _ngcontent-psu-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to place a buy order in a specific market. Use buylimit to place limit orders. Make sure you have the proper permissions set on your API keys for this call to work.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ex: ETH-BTC)</p>
+												<p><strong>quantity</strong>: decimal the amount to purchase</p>
+												<p><strong>rate</strong>: the rate at which to place the order</p>
+												<p><strong>Method</strong>: <strong>Post</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/buylimit?market=ETH-BTC&amp;quantity=1.2&amp;rate=1.3</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "Post Trade Successfully!","result": " " }</pre></div>
+											<div id="tab9" class="tab-pane fade in">
+												<h4 _ngcontent-psu-c1="">New sell Order</h4>
+												<p _ngcontent-psu-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to place an sell order in a specific market. Use selllimit to place limit orders. Make sure you have the proper permissions set on your API keys for this call to work.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ex: ETH-BTC)</p>
+												<p><strong>quantity</strong>: decimal the amount to purchase</p>
+												<p><strong>rate</strong>: the rate at which to place the order</p>
+												<p><strong>Method</strong>: <strong>Post</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/selllimit?market=ETH-BTC&amp;quantity=1.2&amp;rate=1.3</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "Post Trade Successfully!","result": " " }</pre></div>
+											<div id="tab10" class="tab-pane fade in">
+												<h4 _ngcontent-psu-c1="">Order</h4>
+												<p _ngcontent-psu-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve your order history.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ie. ETH-BTC). If omitted, will return for all markets</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/getorderhistory?market=ETH-BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "buy": [ { "OrderUuid": "123456","Exchange": "USD-BTC", "TimeStamp": "2019-07-22T20:01:36.000000Z","OrderType": "Limit","PostType": "Buy", "Quantity": 2, "QuantityRemaining": 2, "CommissionPaid": "0.04000000","Price": 1,"Opened": "2019-07-22T20:01:36.000000Z","Closed": false,"ImmediateOrCancel": true ], "sell": [ {"OrderUuid": 123456,"Exchange": "USD-BTC", "TimeStamp": "2019-07-22T20:02:05.000000Z","OrderType": "Limit","Quantity": 1,"QuantityRemaining": 1, "CommissionPaid": "0.03000000","Price": 2,"Opened": "2019-07-22T20:02:05.000000Z","Closed": false,"ImmediateOrCancel": true}],}, }]}</pre></div>
+											<div id="tab11" class="tab-pane fade in">
+												<h4 _ngcontent-umh-c1="">All order</h4>
+												<p _ngcontent-umh-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve your order history.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ie. ETH-BTC). If omitted, will return for all markets</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/getorderhistory?market=ETH-BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "buy": [ { "OrderUuid": "123456","Exchange": "USD-BTC", "TimeStamp": "2019-07-22T20:01:36.000000Z","OrderType": "Limit","PostType": "Buy", "Quantity": 2, "QuantityRemaining": 2, "CommissionPaid": "0.04000000","Price": 1,"Opened": "2019-07-22T20:01:36.000000Z","Closed": false,"ImmediateOrCancel": true ], "sell": [ {"OrderUuid": 123456,"Exchange": "USD-BTC", "TimeStamp": "2019-07-22T20:02:05.000000Z","OrderType": "Limit","Quantity": 1,"QuantityRemaining": 1, "CommissionPaid": "0.03000000","Price": 2,"Opened": "2019-07-22T20:02:05.000000Z","Closed": false,"ImmediateOrCancel": true}],}, }]}</pre></div>
+											<div id="tab12" class="tab-pane fade in">
+												<h4>Openorders</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Get all orders that you currently have opened. A specific market can be requested.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ie. ETH-BTC)</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/getopenorders?market=ETH-BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{     "success": true,"message": "","result": [{  "buy": [ {"Orderid": "TW6qu3Fzi72flky40cvE","Exchange": "USD-BTC","OrderType": "Limit","PostType": "Buy","Quantity": 0.03,"QuantityRemaining": 0.03,"CommissionPaid": 0.000009,"Price": 3,"Opened":"2019-08-13T09:56:12.000000Z","Closed": null,"ImmediateOrCancel": null}] }] }</pre></div>
+											<div id="tab13" class="tab-pane fade in">
+												<h4>Api version</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Get all orders that you currently have opened. A specific market can be requested.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/apiversion</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{    "success": true,    "result": "1.0",    "message": ""}</pre></div>
+											<div id="tab14" class="tab-pane fade in">
+												<h4 _ngcontent-uut-c1="">New buy market Order</h4>
+												<p _ngcontent-uut-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to place a buy order in a specific market. Use buymarket to place market orders. Make sure you have the proper permissions set on your API keys for this call to work.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ex: ETH-BTC)</p>
+												<p><strong>buymarketvolume</strong>: decimal the volume to purchase</p>
+												<p><strong>Method</strong>: <strong>Post</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/buymarket?market=ETH-BTC&amp;buymarketvolume=1</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "Post Trade Successfully!","result": " " }</pre></div>
+											<div id="tab15" class="tab-pane fade in">
+												<h4 _ngcontent-vhq-c1="">New sell market Order</h4>
+												<p _ngcontent-vhq-c1=""></p>
+												<p><strong>Description</strong></p>
+												<p>Used to place a sell order in a specific market. Use sellmarket to place market orders. Make sure you have the proper permissions set on your API keys for this call to work.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ex: ETH-BTC)</p>
+												<p><strong>sellmarketvolume</strong>: decimal the volume to purchase</p>
+												<p><strong>Method</strong>: <strong>Post</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : https://beta.morcrypto-exchange.com/sellmarket?market=ETH-BTC&amp;sellmarketvolume=1</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "Post Trade Successfully!","result": " " }</pre></div>
+											<div id="tab16" class="tab-pane fade in">
+												<h4>Getopenorders</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Get all orders that you currently have opened. A specific market can be requested.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ie. ETH-BTC)</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getopenorders?market=ETH-BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{     "success": true,"message": "","result": [{  "buy": [ {"Orderid": "TW6qu3Fzi72flky40cvE","Exchange": "USD-BTC","OrderType": "Limit","PostType": "Buy","Quantity": 0.03,"QuantityRemaining": 0.03,"CommissionPaid": 0.000009,"Price": 3,"Opened":"2019-08-13T09:56:12.000000Z","Closed": null,"ImmediateOrCancel": null}] }] }</pre></div>
+											<div id="tab17" class="tab-pane fade in">
+												<h4>Getbalances</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve the balance from your account for a specific currency.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getbalances</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "Currency": "BTC","Balance": "99.12400000","Available": "99.12400000","CryptoAddress": "123" }]}</pre></div>
+											<div id="tab18" class="tab-pane fade in">
+												<h4>Getdepositaddress</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve or generate an address for a specific currency. If one does not exist, the call will fail and return ADDRESS_GENERATING until one is available.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>currency</strong>: a string literal for the currency (ie. BTC)</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getdepositaddress?currency=BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "Currency": "VTC", "Address": "Vy5SKeKGXUHKS2WVpJ76HYuKAu3URastUo" }]}</pre></div>
+											<div id="tab19" class="tab-pane fade in">
+												<h4>Getbalance</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve the balance from your account for a specific currency.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>currency</strong>: a string literal for the currency (ie. BTC)</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getbalance?currency=BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{   "Currency": "BTC","Balance": "99.12400000","Available": "99.12400000","CryptoAddress": "123" }]}</pre></div>
+											<div id="tab20" class="tab-pane fade in">
+												<h4>Getorder</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve a single order by uuid</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p>the <strong>uuid</strong> of the buy or sell order</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getorder?uuid=955fc21dc4f203781eb44821820d0963</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "result": { "OrderUuid": "123456","Exchange": "USD-BTC","OrderType": "Limit","PostType": "Buy","Quantity": 2,"QuantityRemaining": 2,"CommissionPaid": "0.04000000","Price": 1,"Opened": "2019-07-22T20:01:36.000000Z","Closed": false,"ImmediateOrCancel": true } }]}</pre></div>
+											<div id="tab21" class="tab-pane fade in">
+												<h4>Getorderhistory</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve your order history.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>market</strong>: a string literal for the market (ie. ETH-BTC). If omitted, will return for all markets</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getorderhistory?market=ETH-BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "buy": [ { "OrderUuid": "123456","Exchange": "USD-BTC", "TimeStamp": "2019-07-22T20:01:36.000000Z","OrderType": "Limit","PostType": "Buy", "Quantity": 2, "QuantityRemaining": 2, "CommissionPaid": "0.04000000","Price": 1,"Opened": "2019-07-22T20:01:36.000000Z","Closed": false,"ImmediateOrCancel": true ], "sell": [ {"OrderUuid": 123456,"Exchange": "USD-BTC", "TimeStamp": "2019-07-22T20:02:05.000000Z","OrderType": "Limit","Quantity": 1,"QuantityRemaining": 1, "CommissionPaid": "0.03000000","Price": 2,"Opened": "2019-07-22T20:02:05.000000Z","Closed": false,"ImmediateOrCancel": true}],}, }]}</pre></div>
+											<div id="tab22" class="tab-pane fade in">
+												<h4>Getwithdrawalhistory</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve your withdrawal history.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>currency</strong>: a string literal for the currency (ie. BTC). If omitted, will return for all currencies</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getwithdrawalhistory?currency=BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "TxId": "WitiSJbF2o5ERmTevINS", "Currency": "BTC","Amount": "10.00000000","Address": "1B2Sz6HHbdoucwqA8gbUd6B5igz38kUfdm","TxCost": "0.00000000","Opened": "2019-07-23T13:21:18.000000Z","status": "Approved by admin" }]}</pre></div>
+											<div id="tab23" class="tab-pane fade in">
+												<h4>Getdeposithistory</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve your deposit history.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>Inheader</strong>: Authorization</p>
+												<p><strong>currency</strong>: a string literal for the currency (ie. BTC). If omitted, will return for all currencies</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getdeposithistory?currency=BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "Id": 32,"TxId": "BTAH8nvlTRLypqiz4INS","Currency": "BTC", "Amount": "10.00000000","TxCost": "0.00000000", "Opened": "2019-07-27T07:50:45.000000Z","LastUpdated": "2019-07-27T07:50:45.000000Z","CryptoAddress": "fhfghhfgh","status": "Approved by admin" }]}</pre></div>
+											<div id="tab24" class="tab-pane fade in">
+												<h4>Withdraw</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to withdraw funds from your account. <em>Note: please account for txfee.</em></p>
+												<p><strong>Request Parameters For Coin:</strong></p>
+												<p><strong>currency</strong>: string in query a string literal for the currency (ie. BTC)</p>
+												<p><strong>amount</strong>: decimal in query the amount of coins to withdraw</p>
+												<p><strong>toaddress</strong>: string in query the address where to send the funds</p>
+												<p><strong>Request Parameters For Fiat:</strong></p>
+												<p><strong>currency</strong>: string in query a string literal for the currency (ie. USD)</p>
+												<p><strong>amount</strong>: decimal in query the amount of fiat to withdraw</p>
+												<p><strong>bank_name</strong>: string in query the your bankname</p>
+												<p><strong>account_no</strong>: string in query the your account no</p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/withdraw</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{    "success": true,    "message": "Withdrawal Successfully!",    "result": "" }</pre></div>
+											<div id="tab25" class="tab-pane fade in">
+												<h4>Get Ticker</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to get the current tick values for a market.</p>
+												<p></p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>market</strong>: string in query a string literal for the market (ex: ETH-BTC)</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p></p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getticker?market=ETH-BTC</pre>
+												<p></p>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{    "success": true,    "message": "''",    "result": {        "Bid": "0.00000000",        "Ask": "0.00000000",        "Last": "0.00000000"    }}</pre>
+												<p></p>
+											</div>
+											<div id="tab26" class="tab-pane fade in">
+												<h4>Get Currencies</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to get all supported currencies at morcrypto along with other meta data.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p>Inheader: Authorization</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response:</strong></p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p>
+												<p></p><pre>URL : http://beta.morcrypto-exchange.com/getcurrencies</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{ "Currency": "BTC","CurrencyLong": "bitcoin","CoinType": "BITCOIN","MinConfirmation": "2.00000000","TxFee": "0.00020000","IsActive": true,"IsRestricted": false,"BaseAddress": null     }]}</pre></div>
+											<div id="tab27" class="tab-pane fade in">
+												<h4>Get Market Summaries</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to get the last 24 hour summary of all active markets.</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getmarketsummaries</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{  "success":  true,"message": "","result": [{ "Last": 11119.626,"Low": 11099,"High": 11444,"Volume": 369.19206585000001,"Bid": 11119.661,"Ask": 11120,"Exchange": "-0.02","MarketName": "USD-BTC" }]</pre></div>
+											<div id="tab28" class="tab-pane fade in">
+												<h4>Get Market Summary</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to get the last 24 hour summary of a specific market.</p>
+												<p>
+													<br><strong>Request Parameters:</strong></p>
+												<p>market: string in query a string literal for the market (ex: ETH-BTC)</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response:</strong></p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getmarketsummary?market=ETH-BTC</pre>
+												<p>
+													<br><strong>Response Example (200 OK)</strong></p><pre>{    "success": true,    "message": "''",    "result": {  "Last": 0,"Low": 0,"High": 0,"Volume": 0,"Exchange": 0,"MarketName": "ETH-BTC" }}</pre></div>
+											<div id="tab29" class="tab-pane fade in">
+												<h4>Get Markets</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to get the open and available trading markets at morcrypto along with other meta data</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getmarkets</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{    "success": true,    "message": "''",    "result": {   "MarketCurrency": "USD","BaseCurrency": "BTC","MarketCurrencyLong": "United State Dollar","BaseCurrencyLong": "bitcoin","MarketName": "ETH-BTC","IsActive": true, "Created": "2019-07-19T12:14:14.000000Z","Notice": "ETH-BTC  }}</pre></div>
+											<div id="tab30" class="tab-pane fade in">
+												<h4>GetAuthorizationToken</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Get the user token.</p>
+												<p><strong>Method : Post</strong></p>
+												<p><strong>Request Parameters:</strong></p>
+												<p>publickey: anyone user api public key</p>
+												<p>privatekey: anyone user api private key</p>
+												<p></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/login</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "Login successfully!","result": [{  "access_token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjgyMTJjODEwZmU2ZDljZTNkZjQ1ZGU0NTE4NTk0NGZiY2MwNzU3ZTQ2MTI1ZTVmMzRhMTUzZDllNjY3Njg3YTgxZTY5NjNhNmEzNWMxZjdkIn0.eyJhdWQiOiIxIiwianRpIjoiODIxMmM4MTBmZTZkOWNlM2RmNDVkZTQ1MTg1OTQ0ZmJjYzA3NTdlNDYxMjVlNWYzNGExNTNkOWU2Njc2ODdhODFlNjk2M2E2YTM1YzFmN2QiLCJpYXQiOjE1NjUxNjIwNTksIm5iZiI6MTU2NTE2MjA1OSwiZXhwIjoxNTk2Nzg0NDU5LCJzdWIiOiI2MyIsInNjb3BlcyI6W119.xYwYf8Q2_vSiC47zkr4-vZ67SlW9JzFYrdFMdM6uoyUo2z-nUmEbS0QjaE8A3c5Ve5z5DQOm-kFs71Rdq_twRNV9yZj8FPe2q9VIKSk_WWBeAL8_jgVOwpSbIhA4IpjtSakHV21WMEYatiE5Oly2ajoY1_KISUgM1u_5wunpzdjJ0ZUsUGamU5chWv0y9i0lvYXi4ucsU169lAqSpmJecGu1DiM-dorG99BEDuBV5TNkDzBm3jbXQHp3crQ65zwWHGHPboOpSVrPbmqW0DD0-8ZeR56pC8pCKoE5ARCIJ42u8ddrGj5Vmj5hhwNMkPpjYTUtBr8cCyLOwuLb0Xlr69ppW5hgea56BqEEzqO3De_cktczRzTpjkYXFzTEp2HzhPXA65ls2-Nu4zzopYsJwGytW5uOcUz_8zigK26pnOk6UO_3AN_mTLTHhfdfKMDmCHXXncjPU4vYUMVOOq6kUBj1OzAN57zbkIU8n8Kp8XwFPGbgQb9alPAlV4LGmoOxNknvzkoA4CdrU6UGfKEB9VLWQJpBMly9tKG9s5UOP5cZZ1r5Ubzqqby6EG3r17MMGU1qGxU8_1JoPLD5fQuHyI9K6fYQCmtlsdolWf1X6w9K8W2255FPio1TwJEEE9lHsmodsUZuw6A2W7AuLHNpffOzw7JRXli4nfsp4WYyIwQ",        "expires_at": "2020-08-07 07:14:19"  }]}</pre></div>
+											<div id="tab31" class="tab-pane fade in">
+												<h4>GetBasicInfo</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Get the user basic details.</p>
+												<p><strong>Method : Post</strong></p>
+												<p><strong>Request Parameters:</strong></p>
+												<p>Inheader: Authorization</p>
+												<p></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/get_basic_info</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{ "username": "username","email": "useremail","phonenumber": 123456     }]}</pre></div>
+											<div id="tab32" class="tab-pane fade in">
+												<h4>Get Orderbook</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to get retrieve the orderbook for a given market.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>market</strong>: a string literal for the market (ex: ETH-BTC)</p>
+												<p><code><strong>Type</strong>: buy</code>, <code>sell</code> or <code>both</code> to identify the type of orderbook to return</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getorderbook?market=ETH-BTC&amp;type=both</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "buy":[{"quantity":2,"rate":1},{"quantity":2,"rate":2}],"sell":[{"quantity":3,"rate":2}]  }]}</pre></div>
+											<div id="tab33" class="tab-pane fade in">
+												<h4>Get Markethistory</h4>
+												<p></p>
+												<p><strong>Description</strong></p>
+												<p>Used to retrieve the latest trades that have occurred for a specific market.</p>
+												<p><strong>Request Parameters:</strong></p>
+												<p><strong>market</strong>: a string literal for the market (ex: ETH-BTC)</p>
+												<p><strong>Method</strong>: <strong>GET</strong></p>
+												<p><strong>Response</strong>:</p>
+												<p>200 OK Success</p>
+												<p>type object</p>
+												<p><strong>Request Url Example</strong></p><pre>URL : http://beta.morcrypto-exchange.com/getmarkethistory?market=ETH-BTC</pre>
+												<p><strong>Response Example (200 OK)</strong></p><pre>{   "success": true,"message": "''","result": [{  "Id": 319435, "TimeStamp": "2014-07-09T03:21:20.08", "Quantity": 0.30802438, "Price": 0.012634, "Total": 0.00389158, "FillType": "FILL", "OrderType": "BUY" }]}</pre></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</article>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
